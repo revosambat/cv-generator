@@ -6,6 +6,7 @@ import Box from "@mui/material/Box"
 import { Stack } from "@mui/material"
 import WebTitle from "../components/WebTitle"
 import SharedLayout from "../containers/SharedLayout"
+import FormProvider from "../context/context"
 
 const GeneralLayout = () => {
 	return (
@@ -38,13 +39,15 @@ const GeneralLayout = () => {
 const Router = () => {
 	return (
 		<BrowserRouter>
-			<Routes>
-				<Route element={<GeneralLayout />}>
-					<Route path="/" Component={() => <Landing />} />
-					<Route path="/cv-form" Component={() => <CvForm />} />
-				</Route>
-				<Route path="/templates" Component={TemplateCollection} />
-			</Routes>
+			<FormProvider>
+				<Routes>
+					<Route element={<GeneralLayout />}>
+						<Route path="/" Component={() => <Landing />} />
+						<Route path="/cv-form" Component={() => <CvForm />} />
+					</Route>
+					<Route path="/templates" Component={TemplateCollection} />
+				</Routes>
+			</FormProvider>
 		</BrowserRouter>
 	)
 }

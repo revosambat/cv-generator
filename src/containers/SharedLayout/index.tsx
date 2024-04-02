@@ -1,6 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material"
 import CustomButton from "../../components/CustomButton"
 import { useLocation, useNavigate } from "react-router-dom"
+import CVHeaderList from "./components/CVHeaderList"
 
 const index = () => {
 	const router = useLocation()
@@ -49,7 +50,7 @@ const index = () => {
 					</Typography>
 				</>
 			) : router.pathname === "/cv-form" ? (
-				<Typography>tab of CV</Typography>
+				<CVHeaderList />
 			) : null}
 		</Stack>
 	)
