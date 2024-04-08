@@ -23,6 +23,7 @@ const CustomTextField = ({
 			placeholder={placeholder}
 			multiline
 			rows={5}
+			sx={{ backgroundColor: "white", color: "#5B7492", width: "100%" }}
 		/>
 	)
 }

@@ -16,7 +16,16 @@ const CVHeaderList = () => {
 	}
 	return (
 		<TabContext value={initData.activeFormSlug}>
-			<TabList orientation="vertical" onChange={handleChange}>
+			<TabList
+				orientation="vertical"
+				onChange={handleChange}
+				sx={{ borderTopLeftRadius: "10%" }}
+			>
+				<Tab
+					label={"CV Headers"}
+					disabled
+					sx={{ borderBottom: "3px solid #3b4b5e" }}
+				/>
 				{CVHeaderData.map(
 					({ title, slug }: { title: string; slug: string }, _idx) => (
 						<Tab key={slug} label={title} value={slug} />
