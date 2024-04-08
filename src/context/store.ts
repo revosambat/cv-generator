@@ -10,6 +10,7 @@ export interface cvDataTypes {
 		address: string
 	}
 	academicQualification: {
+		id: number
 		name: string
 		level: string
 		description: string
@@ -18,6 +19,7 @@ export interface cvDataTypes {
 		passedYear: string
 	}[]
 	workExperience: {
+		id: number
 		name: string
 		designation: string
 		address: string
@@ -26,10 +28,12 @@ export interface cvDataTypes {
 		endYear: string
 	}[]
 	skillHighlights: {
+		id: number
 		name: string
 		level: string
 	}[]
 	projects: {
+		id: number
 		name: string
 		startedAt: string
 		endedAt: string
@@ -37,6 +41,7 @@ export interface cvDataTypes {
 		description: string
 	}[]
 	languages: {
+		id: number
 		name: string
 		level: string
 	}[]
@@ -54,6 +59,7 @@ export const cvData: cvDataTypes = {
 	},
 	academicQualification: [
 		{
+			id: 1,
 			name: "",
 			level: "",
 			description: "",
@@ -64,6 +70,7 @@ export const cvData: cvDataTypes = {
 	],
 	workExperience: [
 		{
+			id: 1,
 			name: "",
 			designation: "",
 			address: "",
@@ -74,12 +81,14 @@ export const cvData: cvDataTypes = {
 	],
 	skillHighlights: [
 		{
+			id: 1,
 			name: "",
 			level: "",
 		},
 	],
 	projects: [
 		{
+			id: 1,
 			name: "",
 			startedAt: "",
 			endedAt: "",
@@ -89,6 +98,7 @@ export const cvData: cvDataTypes = {
 	],
 	languages: [
 		{
+			id: 1,
 			name: "",
 			level: "",
 		},
