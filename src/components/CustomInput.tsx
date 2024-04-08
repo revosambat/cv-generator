@@ -1,5 +1,15 @@
 import OutlinedInput from "@mui/material/OutlinedInput"
 import React from "react"
+import { styled } from "@mui/material"
+
+const StyledInput = styled(OutlinedInput)`
+	background-color: white;
+	color: #5b7492;
+	width: 100%;
+	&:hover {
+		box-shadow: 0px 6px 14px -3px #616161;
+	}
+`
 
 interface PropTypes {
 	type: string
@@ -18,7 +28,7 @@ const CustomInput = ({
 	placeholder,
 }: PropTypes) => {
 	return (
-		<OutlinedInput
+		<StyledInput
 			type={type}
 			defaultValue={value}
 			name={name}
