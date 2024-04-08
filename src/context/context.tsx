@@ -1,10 +1,4 @@
-import {
-	createContext,
-	Dispatch,
-	ReducerAction,
-	ReducerState,
-	useReducer,
-} from "react"
+import { createContext, Dispatch, ReducerAction, useReducer } from "react"
 
 import { cvData, cvDataTypes } from "./store"
 
@@ -29,7 +23,17 @@ export default function FormProvider({ children }: PropTypes) {
 
 function formDataReducer(
 	data: cvDataTypes,
-	action: { type: string; payload: cvDataTypes }
+	action: {
+		type: string
+		payload:
+			| { activeFormSlug: cvDataTypes["activeFormSlug"] }
+			| { generalInformation: cvDataTypes["generalInformation"] }
+			| { academicQualification: cvDataTypes["academicQualification"] }
+			| { workExperience: cvDataTypes["workExperience"] }
+			| { projects: cvDataTypes["projects"] }
+			| { languages: cvDataTypes["languages"] }
+			| { skillHighlights: cvDataTypes["skillHighlights"] }
+	}
 ): cvDataTypes {
 	switch (action.type) {
 		case "onUpdate":
