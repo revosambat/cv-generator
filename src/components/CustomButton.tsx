@@ -3,22 +3,26 @@ import { styled } from "@mui/material/styles"
 import { MouseEventHandler } from "react"
 
 const StyledButton = styled(Button)`
-	color: "#1E1E1E";
 	font-family: Sansita;
 	font-style: italic;
-	width: 100px;
+	width: 110px;
 	height: 50px;
-	border-radius: 12%;
 	font-weight: 700;
 	box-shadow: 0px 6px 14px -3px #616161;
 `
 interface PropTypes {
 	text: string
 	handleClick: undefined | MouseEventHandler<HTMLButtonElement>
+	sx?: { width: string }
 }
-const CustomButton = ({ text, handleClick }: PropTypes) => {
+const CustomButton = ({ text, handleClick, sx }: PropTypes) => {
 	return (
-		<StyledButton variant="contained" onClick={handleClick}>
+		<StyledButton
+			variant="contained"
+			onClick={handleClick}
+			color="info"
+			sx={sx}
+		>
 			{text}
 		</StyledButton>
 	)
