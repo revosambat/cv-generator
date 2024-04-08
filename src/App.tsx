@@ -10,6 +10,25 @@ const theme = createTheme({
 		secondary: {
 			main: "#F6F6F6",
 		},
+		info: {
+			main: "#5B7492",
+			contrastText: "#CFDAEE",
+		},
+	},
+	components: {
+		MuiTab: {
+			styleOverrides: {
+				root: {
+					width: "300px",
+					color: "#5B7492",
+					backgroundColor: "#CFDAEE",
+					fontFamily: ["Sansita"].join(","),
+					"&.Mui-selected": {
+						backgroundColor: "#5B7492",
+					},
+				},
+			},
+		},
 	},
 	typography: {
 		h1: {
@@ -23,6 +42,11 @@ const theme = createTheme({
 			fontFamily: ["Sansita"].join(","),
 			color: "#5B7492",
 			fontSize: "20px",
+		},
+		h3: {
+			fontFamily: ["Sansita"].join(","),
+			color: "#5B7492",
+			fontSize: "14px",
 		},
 	},
 })
