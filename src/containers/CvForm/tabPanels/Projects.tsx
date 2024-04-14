@@ -53,7 +53,7 @@ const Projects = ({ formData, updateForm, tabChange }: PropTypes) => {
 		}))
 	}
 	const handleRemove = (i: number) => {
-		let filteredProj = proj.projects.filter((_val, idx) => idx !== i)
+		let filteredProj = proj.projects.filter(({ id }, idx) => id !== i)
 		setProj({
 			projects: filteredProj,
 		})
