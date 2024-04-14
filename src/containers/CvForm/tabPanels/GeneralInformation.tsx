@@ -104,7 +104,7 @@ const GeneralInformation = ({ formData, updateForm, tabChange }: PropTypes) => {
 						/>
 					</Grid>
 					<Grid item md={12}>
-						<FormDivider idx={0} />
+						<FormDivider idx={0} id={0} />
 					</Grid>
 				</Grid>
 			</Box>
