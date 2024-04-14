@@ -9,9 +9,11 @@ import Languages from "./tabPanels/Languages"
 import { CVHeaderData } from "../../contants"
 import { Box } from "@mui/material"
 import { cvDataTypes } from "../../context/store"
+import { useNavigate } from "react-router-dom"
 
 const CvForm = () => {
 	const formContext = useContext(FormDataContext)
+	const navigate = useNavigate()
 	if (!formContext) return null
 	const { initData, dispatch } = formContext
 	const {
@@ -62,6 +64,7 @@ const CvForm = () => {
 			activeSlugIdx = 0
 		}
 		if (activeSlugIdx > totalIdx) {
+			navigate("/templates")
 			return
 		}
 		dispatch({
