@@ -7,13 +7,14 @@ import { Stack } from "@mui/material"
 import WebTitle from "../components/WebTitle"
 import SharedLayout from "../containers/SharedLayout"
 import FormProvider from "../context/context"
+import ErrorPage from "./error"
 
 const GeneralLayout = () => {
 	return (
 		<Stack
 			direction="row"
 			display="flex"
-			flexWrap={"revert"}
+			flexWrap={"wrap"}
 			sx={{ height: "100vh" }}
 		>
 			<Box
@@ -45,7 +46,8 @@ const Router = () => {
 						<Route path="/" Component={() => <Landing />} />
 						<Route path="/cv-form" Component={() => <CvForm />} />
 					</Route>
-					<Route path="/templates" Component={TemplateCollection} />
+					<Route path="/templates" Component={() => <TemplateCollection />} />
+					<Route path="/*" Component={() => <ErrorPage />} />
 				</Routes>
 			</FormProvider>
 		</BrowserRouter>
