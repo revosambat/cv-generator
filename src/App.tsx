@@ -48,6 +48,16 @@ const theme = createTheme({
 			color: "#5B7492",
 			fontSize: "14px",
 		},
+		body1: {
+			fontFamily: ["Sansita"].join(","),
+			color: "#FFFFFF",
+			fontSize: "12px",
+		},
+		body2: {
+			fontFamily: ["Sansita"].join(","),
+			color: "#FFFFFF",
+			fontSize: "12px",
+		},
 	},
 })
 
