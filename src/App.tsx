@@ -55,8 +55,8 @@ const theme = createTheme({
 		},
 		body2: {
 			fontFamily: ["Sansita"].join(","),
-			color: "#FFFFFF",
-			fontSize: "12px",
+			color: "#5B7492",
+			fontSize: "14px",
 		},
 	},
 })
