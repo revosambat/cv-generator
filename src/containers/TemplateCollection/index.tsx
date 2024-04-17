@@ -55,7 +55,7 @@ const TemplateCollection = () => {
 					justifyContent={"center"}
 					alignItems={"center"}
 				>
-					<IconButton onClick={() => handleScroll(-500)}>
+					<IconButton onClick={() => handleScroll(-210)}>
 						<ArrowCircleLeftIcon fontSize="large" />
 					</IconButton>
 				</Box>
@@ -82,13 +82,13 @@ const TemplateCollection = () => {
 					alignItems={"center"}
 					justifyContent={"center"}
 				>
-					<IconButton onClick={() => handleScroll(+500)}>
+					<IconButton onClick={() => handleScroll(+210)}>
 						<ArrowCircleRightIcon fontSize="large" />
 					</IconButton>
 				</Box>
 			</Box>
 			<Box p={5}>
-				<Typography variant="body2">
+				<Typography variant="body2" textAlign={"justify"}>
 					<strong>Introducing our CV Generator:</strong> The hassle-free
 					solution for crafting professional resumes. With our user-friendly
 					interface, you can effortlessly create your perfect CV in minutes.
