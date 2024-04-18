@@ -4,6 +4,10 @@ import { Fade, IconButton, styled, ThemeProvider } from "@mui/material"
 import Template1 from "../templates/template1"
 import { template1Theme } from "../templates/template1theme"
 import CloseIcon from "@mui/icons-material/Close"
+import DownloadIcon from "@mui/icons-material/Download"
+import { template2Theme } from "../templates/template2theme"
+import Template2 from "../templates/template2"
+import { MutableRefObject } from "react"
 
 const StyledBox = styled(Box)`
 	position: relative;
@@ -20,9 +24,18 @@ const StyledBox = styled(Box)`
 interface Proptypes {
 	open: boolean
 	handleClose: () => void
+	handleDownload: () => void
+	exportRef: MutableRefObject<HTMLDivElement | null>
+	activeTemplate: string
 }
 
-const CvViewer = ({ open = true, handleClose }: Proptypes) => {
+const CvViewer = ({
+	open = true,
+	exportRef,
+	handleClose,
+	handleDownload,
+	activeTemplate,
+}: Proptypes) => {
 	return (
 		<Modal open={open}>
 			<Fade in={open}>
@@ -33,9 +46,22 @@ const CvViewer = ({ open = true, handleClose }: Proptypes) => {
 					>
 						<CloseIcon />
 					</IconButton>
-					<ThemeProvider theme={template1Theme}>
-						<Template1 />
-					</ThemeProvider>
+					<IconButton
+						onClick={handleDownload}
+						sx={{ position: "absolute", right: "5%" }}
+					>
+						<DownloadIcon />
+					</IconButton>
+					{activeTemplate == "temp1" && (
+						<ThemeProvider theme={template1Theme}>
+							<Template1 exportRef={exportRef} />
+						</ThemeProvider>
+					)}
+					{activeTemplate == "temp2" && (
+						<ThemeProvider theme={template2Theme}>
+							<Template2 exportRef={exportRef} />
+						</ThemeProvider>
+					)}
 				</StyledBox>
 			</Fade>
 		</Modal>

@@ -1,10 +1,15 @@
 import { Divider, Rating, Stack, Typography } from "@mui/material"
 import Box from "@mui/material/Box"
 import profileImage from "../../../assets/templateprofile.jpeg"
+import { MutableRefObject } from "react"
 
-const Template1 = () => {
+const Template1 = ({
+	exportRef,
+}: {
+	exportRef: MutableRefObject<HTMLDivElement | null>
+}) => {
 	return (
-		<Stack flexDirection={"row"}>
+		<Stack ref={exportRef} flexDirection={"row"}>
 			<Box
 				minHeight={"100%"}
 				bgcolor={"#a2ab89"}
@@ -20,7 +25,8 @@ const Template1 = () => {
 					border={"1px solid #000"}
 					borderRadius={"50%"}
 					overflow={"hidden"}
-					marginTop={"5%"}
+					marginTop={"10%"}
+					mb={3}
 				>
 					<img
 						width={"100%"}
@@ -29,7 +35,7 @@ const Template1 = () => {
 						alt="profile image"
 					/>
 				</Box>
-				<Box textAlign={"center"} marginTop={"10%"}>
+				<Box textAlign={"center"} marginTop={"10%"} mb={10}>
 					<Typography variant="h1" mb={3}>
 						<i>John Doe</i>
 					</Typography>
@@ -162,13 +168,13 @@ const Template1 = () => {
 					</Typography>
 					<Stack flexDirection={"row"} justifyContent={"space-between"}>
 						<Typography variant="h3" color={"#000000"}>
-							React
+							Skill 1
 						</Typography>
 						<Rating name="React" value={3} readOnly />
 					</Stack>
 					<Stack flexDirection={"row"} justifyContent={"space-between"}>
 						<Typography variant="h3" color={"#000000"}>
-							React Native
+							Skill 2
 						</Typography>
 						<Rating name="React" value={3} readOnly />
 					</Stack>
