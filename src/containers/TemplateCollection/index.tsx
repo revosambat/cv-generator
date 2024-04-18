@@ -1,9 +1,11 @@
-import { useContext, useRef, useState } from "react"
+import { MutableRefObject, useContext, useRef, useState } from "react"
 import { FormDataContext } from "../../context/context"
 import CvViewer from "./components/CvViewer"
 import { Box, Paper, styled, IconButton, Typography } from "@mui/material"
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft"
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight"
+import exportAsImage from "../../utils/exportAsImage"
+import { templatesCollection } from "../../contants"
 
 const Item = styled(Paper)`
 	min-width: 200px;
@@ -21,9 +23,18 @@ const TemplateCollection = () => {
 	const formContext = useContext(FormDataContext)
 	const [open, setOpen] = useState(true)
 	const scrollRef = useRef<HTMLElement>(null)
+	const exportRef = useRef<HTMLDivElement | null>(null)
+	const [activeTemplate, setActiveTemplate] = useState<string>(
+		templatesCollection[0].slug
+	)
 
 	const handleModalClose = () => {
 		setOpen(false)
+	}
+	const handleDownload = () => {
+		if (exportRef.current) {
+			exportAsImage(exportRef.current, "template2")
+		}
 	}
 
 	const handleScroll = (offset: number) => {
@@ -31,7 +42,11 @@ const TemplateCollection = () => {
 			scrollRef.current.scrollLeft += offset
 		}
 	}
-	console.log(formContext)
+
+	const handleChooseTemplate = (slug: string) => {
+		setActiveTemplate(slug)
+		setOpen(true)
+	}
 	return (
 		<Box
 			width={"100vw"}
@@ -70,11 +85,11 @@ const TemplateCollection = () => {
 					flex={2.5}
 					p={10}
 				>
-					{Array(10)
-						.fill("templates")
-						.map((val) => (
-							<Item>{val}</Item>
-						))}
+					{templatesCollection.map(({ title, slug, image }) => (
+						<Item onClick={() => handleChooseTemplate(slug)} key={slug}>
+							<img width={"100%"} height={"100%"} src={image} alt={title} />
+						</Item>
+					))}
 				</Box>
 				<Box
 					display={"flex"}
@@ -99,7 +114,13 @@ const TemplateCollection = () => {
 					Generator, landing your dream job just got a whole lot easier.
 				</Typography>
 			</Box>
-			<CvViewer open={open} handleClose={handleModalClose} />
+			<CvViewer
+				open={open}
+				handleClose={handleModalClose}
+				handleDownload={handleDownload}
+				activeTemplate={activeTemplate}
+				exportRef={exportRef}
+			/>
 		</Box>
 	)
 }
