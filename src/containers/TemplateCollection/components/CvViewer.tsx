@@ -2,12 +2,14 @@ import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
 import { Fade, IconButton, styled, ThemeProvider } from "@mui/material"
 import Template1 from "../templates/template1"
-import { template1Theme } from "../templates/template1theme"
+import { template1Theme } from "../templates/themes/template1theme"
 import CloseIcon from "@mui/icons-material/Close"
 import DownloadIcon from "@mui/icons-material/Download"
-import { template2Theme } from "../templates/template2theme"
+import { template2Theme } from "../templates/themes/template2theme"
 import Template2 from "../templates/template2"
 import { MutableRefObject } from "react"
+import { template3Theme } from "../templates/themes/template3theme"
+import Template3 from "../templates/template3"
 
 const StyledBox = styled(Box)`
 	position: relative;
@@ -60,6 +62,11 @@ const CvViewer = ({
 					{activeTemplate == "temp2" && (
 						<ThemeProvider theme={template2Theme}>
 							<Template2 exportRef={exportRef} />
+						</ThemeProvider>
+					)}
+					{activeTemplate == "temp3" && (
+						<ThemeProvider theme={template3Theme}>
+							<Template3 exportRef={exportRef} />
 						</ThemeProvider>
 					)}
 				</StyledBox>

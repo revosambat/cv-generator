@@ -154,7 +154,7 @@ const Template2 = ({
 					</Box>
 				</Box>
 				<Divider orientation="vertical" flexItem></Divider>
-				<Box flex={1} p={2}>
+				<Box flex={1} p={1}>
 					<Typography variant="h2" mb={2}>
 						<b>Language</b>
 					</Typography>

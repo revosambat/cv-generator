@@ -33,7 +33,7 @@ const TemplateCollection = () => {
 	}
 	const handleDownload = () => {
 		if (exportRef.current) {
-			exportAsImage(exportRef.current, "template2")
+			exportAsImage(exportRef.current, "template3")
 		}
 	}
 
